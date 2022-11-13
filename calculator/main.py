@@ -53,3 +53,44 @@
 #       den Wert "True".
 #
 # Viel Erfolg! :)
+
+import math
+
+stack = []
+input_string = input("Zahl eingeben: ").strip()
+
+while input_string:
+    if input_string.isdigit():
+        stack.append(int(input_string))
+    elif input_string == "+":
+        second_operand = stack.pop()
+        first_operand = stack.pop()
+        stack.append(first_operand + second_operand)
+    elif input_string == "-":
+        second_operand = stack.pop()
+        first_operand = stack.pop()
+        stack.append(first_operand - second_operand)
+    elif input_string == "*":
+        second_operand = stack.pop()
+        first_operand = stack.pop()
+        stack.append(first_operand * second_operand)
+    elif input_string == "/":
+        second_operand = stack.pop()
+        first_operand = stack.pop()
+        stack.append(first_operand / second_operand)
+    elif input_string == "sum":
+        result = 0
+        for number in stack:
+            result += number
+        stack = [result]
+    elif input_string == "sqrt":
+        operand = stack.pop()
+        stack.append(math.sqrt(operand))
+    else:
+        print("Unbekanntes Eingabeformat:", input_string)
+
+    input_string = input(
+        "Zahl oder Operation eingeben (oder Enter zum Auswerten drücken): "
+    ).strip()
+
+print("Das Ergebnis ist", stack.pop())
