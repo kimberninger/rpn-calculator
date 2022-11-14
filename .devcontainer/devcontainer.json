@@ -1,0 +1,13 @@
+{
+	"name": "Python 3",
+	"image": "mcr.microsoft.com/devcontainers/python:3.10",
+	"features": {
+		"ghcr.io/devcontainers-contrib/features/black:1": {},
+		"ghcr.io/devcontainers-contrib/features/isort:1": {},
+		"ghcr.io/devcontainers-contrib/features/mypy:1": {},
+		"ghcr.io/devcontainers-contrib/features/pylint:1": {}
+	},
+	"postCreateCommand": "pip install -r requirements.txt"
+	// Configure tool-specific properties.
+	// "customizations": {},
+}
